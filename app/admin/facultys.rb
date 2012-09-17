@@ -8,7 +8,7 @@ ActiveAdmin.register Faculty do
       default_actions
   end
   form :html => { :multiple => true  } do |f|
-    f.inputs 'Объекты' do
+    f.inputs 'Факультеты' do
       f.input :title, :label => 'Титл'
        f.buttons
     end

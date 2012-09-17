@@ -1,6 +1,7 @@
 class CreateRules < ActiveRecord::Migration
   def change
     create_table :rules do |t|
+      t.integer :filial_id
       t.integer :faculty_id
       t.integer :course_id
       t.integer :form_id

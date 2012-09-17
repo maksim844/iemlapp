@@ -1,0 +1,18 @@
+<h1>Калькулятор стоимости обучения</h1>
+
+<%= form_for "summ", :url=>summa_path,  :multipart => true, :remote=>true do |f| %>
+<h3>Выберите факультет</h3>
+	<% @facultys.each do |f|%>
+		<label><%= f.title %></label>
+		<%= radio_button_tag 'faculty', f.id %><br/>
+	<% end %>
+<h3>Выберите форму обучения</h3>
+	<%= select("form", "form_id", Form.all.collect {|p| [ p.title, p.id ] }) %>
+<h3>Укажите курс на котором вы учитесь</h3>
+	<%= select("course", "course_id", Course.all.collect {|p| [ p.title, p.id ] }) %>
+<h3>Укажите направление бакалавриата</h3>
+	<%= select("bakalavriat", "bakalavriat_id", Bakalavriat.all.collect {|p| [ p.title, p.id ] }) %>
+	<br/><br/>
+	<p class="button"><%= f.submit "Узнать сумму"%></p>
+	<div id ="itog"></div>
+<% end %>

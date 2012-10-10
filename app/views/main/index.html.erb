@@ -3,7 +3,7 @@
 		<div class="left_box">
 			<%= form_for "summ", :url=>summa_path,  :multipart => true, :remote=>true do |f| %>
 			<div class="item">
-				<%= select("filial", "filial_id", Education.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Выберите вид образования'}) %>
+				<%= select("education", "education_id", Education.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Выберите вид образования'}) %>
 			</div>
 			<div class="item">
 				<h3>Факультет</h3>

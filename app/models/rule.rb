@@ -6,4 +6,5 @@ class Rule < ActiveRecord::Base
   belongs_to :faculty
   belongs_to :form
   belongs_to :education
+  
 end

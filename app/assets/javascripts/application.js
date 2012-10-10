@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$("select").change(function () {
+	alert(123)
+	$(".logs").append($(this).html())
+});

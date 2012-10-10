@@ -1,28 +1,44 @@
-<h1>Расчет стоимости обучения за 2012-2013 учебный год.</h1>
-
-<%= form_for "summ", :url=>summa_path,  :multipart => true, :remote=>true do |f| %>
-
-<h3>Выберите филиал ИЭУП</h3>
-	<%= select("filial", "filial_id", Filial.all.collect {|p| [ p.title, p.id ] }) %>
-<h3>Выберите факультет</h3>
-	<% @facultys.each do |f|%>
-		<label><%= f.title %></label>
-		<%= radio_button_tag 'faculty', f.id %><br/>
-	<% end %>
-<h3>Выберите форму обучения</h3>
-	<%= select("form", "form_id", Form.all.collect {|p| [ p.title, p.id ] }) %>
-<h3>Укажите курс на котором вы учитесь</h3>
-	<%= select("course", "course_id", Course.all.collect {|p| [ p.title, p.id ] }) %>
-<h3>Укажите направление бакалавриата</h3>
-	<%= select("bakalavriat", "bakalavriat_id", Bakalavriat.all.collect {|p| [ p.title, p.id ] }) %>
-	<br/><br/>
-	<p class="button"><%= f.submit "Расчитать"%></p>
-	<div id ="itog">
+<div id="content_calc">
+	<div class="calc_box">
+		<div class="left_box">
+			<%= form_for "summ", :url=>summa_path,  :multipart => true, :remote=>true do |f| %>
+			<div class="item">
+				<%= select("filial", "filial_id", Education.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Выберите вид образования'}) %>
+			</div>
+			<div class="item">
+				<h3>Факультет</h3>
+				<div class="faculty">
+					<% @facultys.each do |f|%>				
+						<%= radio_button_tag 'faculty', f.id %>&nbsp;
+						<label><%= f.title %></label>
+						<br/>
+					<% end %>
+				</div>
+			</div>
+			<div class="item">
+				<%= select("form", "form_id", Form.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Форма обучения'}) %>
+			</div>
+			<div class="item">
+				<%= select("bakalavriat", "bakalavriat_id", Bakalavriat.all.collect {|p| [ p.title, p.id ] },{:prompt=>"Укажите направление"}) %>
+			</div>	
+			<div class="item">
+				<%= select("course", "course_id", Course.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Укажите курс'}) %>
+			</div>
+			<div class="button">
+				<%= f.submit "Расчитать"%>
+			</div>
+			
+					
+			
+			<% end %>
+		</div>
+		<div class="right_box">
+			<div id ="itog"></div>	
+			<div class="logs">
 				
+			</div>
+		</div>
+		<div class="clear"></div>
+
 	</div>
-	<br/><br/>
-	<div id="help">
-		Если у Вас возникли вопросы по стоимости обучения, звоните по тел.: (843) 231-92-95.<br/>
-		
-	</div>
-<% end %>
+</div>

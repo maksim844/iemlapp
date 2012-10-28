@@ -20,7 +20,7 @@ ActiveAdmin.register Rule do
       f.input :faculty, :label => 'Факультет'
       f.input :form, :label => 'Форма обучения'
       f.input :special, :label => 'Специальность'
-      arr = Hash["1 курс"=>1,"2 курс"=>2,"3 курс"=>3,"4 курс"=>4,"5 курс"=>5 ]
+      arr = Hash["1 курс"=>1,"2 курс"=>2,"3 курс"=>3,"4 курс"=>4,"5 курс"=>5,"6 курс"=>6 ]
       f.input :course_id, :as => :select, :collection => arr, :label => 'Курс' 
       f.input :bakalavriat, :label => 'Направление'
       arr2 = Hash["1994"=>1994]

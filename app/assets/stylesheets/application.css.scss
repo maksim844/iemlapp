@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 #content_calc{
 	padding: 20px;
@@ -60,6 +59,7 @@
 #itog{
   text-align: center;
   display:none;
+  margin-top: 45%;
 }
 .padding{
   padding: 3px 0;
@@ -95,7 +95,6 @@ a:hover {
 p {
     font-family: Georgia,"Times New Roman",Times,serif;
     font-size: 1em;
-    line-height: 1.5em;
     margin: 0 0 1em;
     padding: 0;
 }

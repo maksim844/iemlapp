@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010203342) do
+ActiveRecord::Schema.define(:version => 20121028185439) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -82,6 +82,18 @@ ActiveRecord::Schema.define(:version => 20121010203342) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "forms_types", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "rules", :force => true do |t|
     t.string   "summ"
     t.string   "summ_semestr"
@@ -93,6 +105,14 @@ ActiveRecord::Schema.define(:version => 20121010203342) do
     t.integer  "bakalavriat_id", :default => 0
     t.integer  "group_id",       :default => 0
     t.integer  "education_id",   :default => 0
+    t.string   "special_id"
+    t.integer  "year_id"
+  end
+
+  create_table "specials", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

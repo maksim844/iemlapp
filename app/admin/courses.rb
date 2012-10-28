@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 ActiveAdmin.register Course do
-  menu  :label => "Курсы"
+  menu  :label => "Курсы", :parent=>"Основные разделы"
   index do
       column :id
       column "Название", :title

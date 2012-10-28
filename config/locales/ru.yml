@@ -1,11 +1,20 @@
 ru:
+  picker_browse: Выбрать файл
+  will_paginate:
+    previous_label: ""
+    next_label: ""
   devise:
-    sessions:
-      admin_user:
-        signed_in: "Вы вошли в систему"
     failure:
       admin_user:
-        unauthenticated:  "Вы вышли из системы"
+        unauthenticated: Вы не авторизованы!
+      already_authenticated: Вы вошли в систему
+    sessions:
+      admin_user:
+        signed_in: Добро пожаловать!
+        unauthenticated: Вы не авторизованы!
+  awesome_nested_set:
+    moved_up: "Подняли на уровень вверх"
+    moved_down: "Опустили на уровень ниже"
   active_admin:
     all: Все
     dashboard: ГЛАВНАЯ
@@ -20,8 +29,10 @@ ru:
     update: "Обновить"
     delete_confirmation: "Вы уверены, что хотите удалить это?"
     new_model: "Создать"
+    create_model: "Создать"
     edit_model: "Изменить"
     delete_model: "Удалить"
+    update_model: "Изменить"
     details: "Подробнее"    
     cancel: "Отмена"
     empty: "Пусто"
@@ -49,7 +60,10 @@ ru:
     blank_slate:
       content: "Пока нет %{resource_name}."
       link: "Создать"
-      
+    comments:
+      no_comments_yet: Нет комментариев
+      title_content: Комментарии      
+      add: Добавить комментарий
   sortable:
     base:
       new:
@@ -122,18 +136,18 @@ ru:
       short: ! '%d %b'
     month_names:
     -
-    - января
-    - февраля
-    - марта
-    - апреля
-    - мая
-    - июня
-    - июля
-    - августа
-    - сентября
-    - октября
-    - ноября
-    - декабря
+    - январь
+    - февраль
+    - март
+    - апрель
+    - май
+    - июнь
+    - июль
+    - август
+    - сентябрь
+    - октябрь
+    - ноябрь
+    - декабрь
     order:
     - :day
     - :month
@@ -347,12 +361,23 @@ ru:
     attributes:
       feedback:
         name: Ваше имя
+        secondname: Поле фамилия
         phone: Телефон
         text: Текст
         partner_type_dealing: Поле сфера деятельности
         partner_name: Имя партнера
       user:
         name: Ваше имя
+        secondname: Ваша фамилия
         phone: Телефон
         text: Текст
         password: Пароль
+      event:
+        title: Название события
+        price: Поле Цена
+        description: Описание
+        date_split: Поле Дата
+        date: Дата
+        time: Время
+        place: Место
+        img: Фото для афиши

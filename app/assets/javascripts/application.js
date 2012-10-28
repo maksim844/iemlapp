@@ -12,8 +12,33 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-$("select").change(function () {
-	alert(123)
-	$(".logs").append($(this).html())
+//= require jquery-ui
+jQuery(document).ready(function(){
+	builder_form();
+	$('.education input[type=radio]').click(function(){
+		builder_form();
+	});
 });
+function builder_form(){
+	at = $('.education input[type=radio]:checked').attr("id")
+	if($('.'+at).html() == "Высшее"){
+		$('.f1,.f2,.f3,.f5').show();
+		$('.f4, .f6').hide();
+	}
+	else if($('.'+at).html() == "Высшее бакалавриат"){
+		$('.f1,.f2,.f4,.f5').show();
+		$('.f3, .f6').hide();
+	}
+	else if($('.'+at).html() == "Среднее специальное"){
+		$('.f2,.f4,.f5').show();
+		$('.f1, .f3, .f6').hide();
+	}
+	else if($('.'+at).html() == "После вузовское"){
+		$('.f2,.f4,.f6').show();
+		$('.f1, .f3, .f5').hide();
+	}
+	reset_selected();
+}
+function reset_selected(){
+	$('.f1,.f2,.f3,.f4,.f5,.f6').find('select option:first-child').attr("selected","selected");
+}

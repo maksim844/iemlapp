@@ -2,28 +2,48 @@
 	<div class="calc_box">
 		<div class="left_box">
 			<%= form_for "summ", :url=>summa_path,  :multipart => true, :remote=>true do |f| %>
+			
 			<div class="item">
-				<%= select("education", "education_id", Education.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Выберите вид образования'}) %>
-			</div>
-			<div class="item">
-				<h3>Факультет</h3>
-				<div class="faculty">
-					<% @facultys.each do |f|%>				
-						<%= radio_button_tag 'faculty', f.id %>&nbsp;
-						<label><%= f.title %></label>
+				<hr size="1" color="#ccc" />
+				<h3>Выберите тип образования:</h3>
+				<hr size="1" color="#ccc" />
+				<div class="education">
+					<% Education.all.each do |f|  %>						
+						<% if Education.all.first.title.to_s == f.title.to_s %>
+							<%= radio_button_tag 'education', f.id ,:checked=>true %>&nbsp;
+						<% else %>
+							<%= radio_button_tag 'education', f.id %>&nbsp;
+						<% end %>
+						<label class="education_<%= f.id %>"><%= f.title %></label>
 						<br/>
 					<% end %>
 				</div>
 			</div>
-			<div class="item">
+			<hr size="1" color="#ccc" />
+			<div class="item f1">
+				<%= select("faculty", "faculty_id", Faculty.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Факультет'}) %>
+			</div>
+			<div class="item f2">
 				<%= select("form", "form_id", Form.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Форма обучения'}) %>
 			</div>
-			<div class="item">
-				<%= select("bakalavriat", "bakalavriat_id", Bakalavriat.all.collect {|p| [ p.title, p.id ] },{:prompt=>"Укажите направление"}) %>
-			</div>	
-			<div class="item">
-				<%= select("course", "course_id", Course.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Укажите курс'}) %>
+			<div class="item f3">
+				<%= select("special", "special_id", Special.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Специальность'}) %>
 			</div>
+			<div class="item f4">
+				<%= select("bakalavriat", "bakalavriat_id", Bakalavriat.all.collect {|p| [ p.title, p.id ] },{:prompt=>"Направление"}) %>
+			</div>	
+			<div class="item f5">
+				<% arr = Hash["1 курс"=>1,"2 курс"=>2,"3 курс"=>3,"4 курс"=>4,"5 курс"=>5 ] %>
+				<%= select("course", "course_id", arr, {:prompt => 'Укажите курс'}) %>
+			</div>
+			<div class="item f6">	
+				<% arr = Hash["1994"=>1994] %>
+				<% i=1994; (Time.now.year-1994).to_i.times do |t| i+=1 %>
+					<% arr[i] = [t=>i]%>
+				<% end %>
+				<%= select("year", "year_id", arr, {:prompt => 'Год обучения'}) %>
+			</div>
+			<hr size="1" color="#ccc" />
 			<div class="button">
 				<%= f.submit "Расчитать"%>
 			</div>

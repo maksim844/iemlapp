@@ -3,13 +3,10 @@
 		.hide()
 		.fadeIn()
 		.html("Стоимость обучения за текущий семестр: <br/><strong class='digit'><%= @summ.summ_semestr %> руб.</strong> " + 
-		"<br/> Стоимость обучения за год: <br/><strong class='digit'><%= @summ.summ %> руб. </strong> " + 
 		"<br/> Оплата посеместровая (в году 2 семестра)")
 <% else %>
 	$('#itog')
 		.hide()
 		.fadeIn()
-		.html("<span class='text'>Нам не удалось подсчитать стоимость обучения по заданным критериям. </span><br/><br/>" +
-		"Пожалуйста свяжитесь с нами по телефону:<br/><strong class='digit'> 8(843)231-92-95 </strong> <br/> или " +
-		"напишите нам <br/> <strong class='digit'>oplata@ieml.ru</strong>")
+		.html("<%= escape_javascript(Page.all.first.text.html_safe) %>")
 <% end %>

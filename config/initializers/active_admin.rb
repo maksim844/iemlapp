@@ -1,12 +1,12 @@
-ActiveAdmin.setup do |config|
+# encoding: utf-8
 
-  # == Site Title
+ActiveAdmin.setup do |config|
   #
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
-  #
-  config.site_title = "Ieml"
+  #  ActiveAdmin::Comment.table_name = "comments"
 
+  config.site_title = "Калькулятор"
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -86,13 +86,6 @@ ActiveAdmin.setup do |config|
   # Default:
   # config.logout_link_method = :get
 
-  # == Root
-  #
-  # Set the action to call for the root path. You can set different
-  # roots for each namespace.
-  #
-  # Default:
-  # config.root_to = 'dashboard#index'
 
   # == Admin Comments
   #
@@ -100,7 +93,7 @@ ActiveAdmin.setup do |config|
   # Admin comments are enabled by default.
   #
   # Default:
-  # config.allow_comments = true
+    config.allow_comments = false
   #
   # You can turn them on and off for any given namespace by using a
   # namespace config block.
@@ -110,13 +103,6 @@ ActiveAdmin.setup do |config|
   #     without_comments.allow_comments = false
   #   end
 
-
-  # == Batch Actions
-  #
-  # Enable and disable Batch Actions
-  #
-  config.batch_actions = true
-  
 
   # == Controller Filters
   #
@@ -134,16 +120,11 @@ ActiveAdmin.setup do |config|
   #
   # To load a stylesheet:
   #   config.register_stylesheet 'my_stylesheet.css'
-  
+  #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', :media => :print
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
-
-
-  # == CSV options
-  #
-  # Set the CSV builder separator (default is ",")
-  # config.csv_column_separator = ','
+    config.register_javascript "/javascripts/tiny_mce/tiny_mce.js"
 end

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 ActiveAdmin.register Form do
-  menu  :label => "Формы обучения"
+  menu  :label => "Формы обучения", :parent=>"Основные разделы"
   index do
       column :id
       column "Название", :title

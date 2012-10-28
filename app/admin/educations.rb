@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 ActiveAdmin.register Education do
-  menu  :label => "Образование", :priority=>1
+  menu  :label => "Тип образования", :priority=>1
   index do
       column :id
       column "Тип образования", :title

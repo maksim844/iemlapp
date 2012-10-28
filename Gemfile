@@ -22,6 +22,9 @@ end
 
 gem 'jquery-rails'
 gem 'activeadmin'
+  gem 'rspec-rails', '2.6.1'
+  gem 'annotate', '2.4.0'
+  gem 'factory_girl_rails', '1.0'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

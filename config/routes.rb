@@ -3,7 +3,7 @@ Ieml::Application.routes.draw do
    get "main/index"
 
   root :to => 'main#index'
-  match "summa" => 'main#summa'
+  post "summa" => 'main#summa'
   ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config
   # The priority is based upon order of creation:

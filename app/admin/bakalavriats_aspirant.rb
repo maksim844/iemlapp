@@ -1,14 +1,14 @@
 # encoding: utf-8
 
-ActiveAdmin.register Special do
-  menu  :label => "Специальности", :parent=>"Основные разделы"
+ActiveAdmin.register BakalavriatAspirant do
+  menu  :label => "Направления Аспирантов", :parent=>"Направления"
   index do
       column :id
       column "Название", :title
       default_actions
   end
   form :html => { :multiple => true  } do |f|
-    f.inputs 'Специальности' do
+    f.inputs 'Направление' do
       f.input :title, :label => 'Титл'
        f.buttons
     end
@@ -16,7 +16,7 @@ ActiveAdmin.register Special do
   controller do
     def show
       flash[:notice] = "Успешно =)"
-      redirect_to admin_specials_path
+      redirect_to admin_bakalavriat_aspirants_path
     end
   end
 end

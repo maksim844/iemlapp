@@ -13,5 +13,10 @@ ActiveAdmin.register Form do
        f.buttons
     end
   end
- 
+  controller do
+    def show
+      flash[:notice] = "Успешно =)"
+      redirect_to admin_forms_path
+    end
+  end
 end

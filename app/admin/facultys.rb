@@ -10,13 +10,14 @@ ActiveAdmin.register Faculty do
   form :html => { :multiple => true  } do |f|
     f.inputs 'Факультеты' do
       f.input :title, :label => 'Титл'
-      f.input :education, :as => :check_boxes do |a|
-        a.inputs  do
-          a.input :education, :label => 'Учавствует в '
-        end
-      end
+    
        f.buttons
     end
   end
- 
+  controller do
+    def show
+      flash[:notice] = "Успешно =)"
+      redirect_to admin_faculties_path
+    end
+  end
 end

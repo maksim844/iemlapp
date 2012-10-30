@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121028185439) do
+ActiveRecord::Schema.define(:version => 20121030205725) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(:version => 20121028185439) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "bakalavriat_aspirants", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "bakalavriats", :force => true do |t|
     t.string   "title"
@@ -92,21 +98,24 @@ ActiveRecord::Schema.define(:version => 20121028185439) do
     t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "uri"
   end
 
   create_table "rules", :force => true do |t|
     t.string   "summ"
     t.string   "summ_semestr"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.integer  "faculty_id",     :default => 0
-    t.integer  "course_id",      :default => 0
-    t.integer  "form_id",        :default => 0
-    t.integer  "bakalavriat_id", :default => 0
-    t.integer  "group_id",       :default => 0
-    t.integer  "education_id",   :default => 0
-    t.string   "special_id"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.integer  "faculty_id",              :default => 0
+    t.integer  "course_id",               :default => 0
+    t.integer  "form_id",                 :default => 0
+    t.integer  "bakalavriat_id",          :default => 0
+    t.integer  "group_id",                :default => 0
+    t.integer  "education_id",            :default => 0
     t.integer  "year_id"
+    t.integer  "special_id"
+    t.integer  "class_id"
+    t.integer  "bakalavriat_aspirant_id"
   end
 
   create_table "specials", :force => true do |t|

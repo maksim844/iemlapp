@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 ActiveAdmin.register Bakalavriat do
-  menu  :label => "Направление", :parent=>"Основные разделы" 
+  menu  :label => "Направления Cтудентов", :parent=>"Направления" 
   index do
       column :id
       column "Название", :title
@@ -13,5 +13,10 @@ ActiveAdmin.register Bakalavriat do
        f.buttons
     end
   end
- 
+  controller do
+    def show
+      flash[:notice] = "Успешно =)"
+      redirect_to admin_bakalavriats_path
+    end
+  end
 end

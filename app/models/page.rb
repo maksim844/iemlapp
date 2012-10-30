@@ -1,3 +1,3 @@
 class Page < ActiveRecord::Base
-  attr_accessible :text
+  attr_accessible :text, :uri
 end

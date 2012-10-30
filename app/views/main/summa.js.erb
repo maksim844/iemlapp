@@ -3,10 +3,10 @@
 		.hide()
 		.fadeIn()
 		.html("Стоимость обучения за текущий семестр: <br/><strong class='digit'><%= @summ.summ_semestr %> руб.</strong> " + 
-		"<br/> Оплата посеместровая (в году 2 семестра)")
+		"<br/><br/> <%= escape_javascript(Page.find_by_uri(:notice).text.html_safe) %>" )
 <% else %>
 	$('#itog')
 		.hide()
 		.fadeIn()
-		.html("<%= escape_javascript(Page.all.first.text.html_safe) %>")
+		.html("<%= escape_javascript(Page.find_by_uri(:error).text.html_safe) %>")
 <% end %>

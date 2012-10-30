@@ -23,22 +23,22 @@ function builder_form(){
 	at = $('.education input[type=radio]:checked').attr("id")
 	if($('.'+at).html() == "Высшее"){
 		$('.f1,.f2,.f3,.f5').show();
-		$('.f4, .f6').hide();
+		$('.f4, .f6,.f7,.f8').hide();
 	}
 	else if($('.'+at).html() == "Высшее бакалавриат"){
 		$('.f1,.f2,.f4,.f5').show();
-		$('.f3, .f6').hide();
+		$('.f3, .f6,.f7,.f8').hide();
 	}
 	else if($('.'+at).html() == "Среднее специальное"){
-		$('.f2,.f4,.f5').show();
-		$('.f1, .f3, .f6').hide();
+		$('.f2,.f4,.f5,.f7').show();
+		$('.f1, .f3, .f6,.f8').hide();
 	}
-	else if($('.'+at).html() == "После вузовское"){
-		$('.f2,.f4,.f6').show();
-		$('.f1, .f3, .f5').hide();
+	else if($('.'+at).html() == "Послевузовское"){
+		$('.f2,.f8,.f6').show();
+		$('.f1, .f3,.f4, .f5,.f7').hide();
 	}
 	reset_selected();
 }
 function reset_selected(){
-	$('.f1,.f2,.f3,.f4,.f5,.f6').find('select option:first-child').attr("selected","selected");
+	$('.f1,.f2,.f3,.f4,.f5,.f6,.f7,.f8').find('select option:first-child').attr("selected","selected");
 }

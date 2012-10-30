@@ -1,6 +1,49 @@
 //= require active_admin/base
 $(document).ready(function() {
-
+	f1 = "#rule_faculty_input";
+	f2 = "#rule_form_input";
+	f3 = "#rule_special_input";
+	f4 = "#rule_bakalavriat_input";
+	f5 = "#rule_course_id_input";
+	f6 = "#rule_year_id_input";
+	f7 = "#rule_class_id_input";
+	f8 = "#rule_bakalavriat_aspirant_input";
+	
+	st_at = $('#rule_education_id option:selected').html();
+	if(st_at == "") hide_all();
+	else builder_form(st_at);
+	
+$('#rule_education_id').change(function () {
+	at = $(this).find('option:selected').html();
+	builder_form(at);
+	reset_selected();
+});
+function builder_form(at){
+	
+	if(at == "Высшее"){
+		$(f1 +","+ f2 +","+ f3 +","+ f5).show();
+		$(f4 +","+ f6 +","+ f7 +","+ f8).hide();
+	}
+	else if(at == "Высшее бакалавриат"){
+		$( f1 +","+ f2 +","+ f4 +","+ f5).show();
+		$( f3 +","+ f6 +","+ f7 +","+ f8).hide();
+	}
+	else if(at == "Среднее специальное"){
+		$( f2 +","+ f4 +","+ f5 +","+ f7).show();
+		$( f1 +","+ f3 +","+ f6 +","+ f8 ).hide();
+	}
+	else if(at == "Послевузовское"){
+		$( f2 +","+ f8 +","+ f6 ).show();
+		$( f1 +","+ f3 +","+ f4 +","+ f5 +","+ f7 ).hide();
+	}
+	
+}
+function reset_selected(){
+	$(f1 +","+ f2 +","+ f3 +","+ f4 +","+ f5 +","+ f6 +","+ f7  +","+ f8).find('select option:first-child').attr("selected","selected");
+}
+function hide_all(){
+	$(f1 +","+ f2 +","+ f3 +","+ f4 +","+ f5 +","+ f6 +","+ f7  +","+ f8).hide();
+}
 tinyMCE.init({
         // General options
         mode : "textareas",

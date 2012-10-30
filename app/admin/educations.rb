@@ -13,5 +13,10 @@ ActiveAdmin.register Education do
        f.buttons
     end
   end
- 
+  controller do
+    def show
+      flash[:notice] = "Успешно =)"
+      redirect_to admin_educations_path
+    end
+  end
 end

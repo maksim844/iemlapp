@@ -78,7 +78,7 @@
 			</div>
 			
 					
-			<%= f.hidden_field :filial_id, :value=>(@filial_id.nil? ? 1 : @filial_id)%>
+			<%= f.hidden_field :filial_id, :value=>(params[:filial_id].nil? ? 1 : params[:filial_id])%>
 			<% end %>
 		</div>
 		<div class="right_box">

@@ -10,7 +10,7 @@ ActiveAdmin.register RuleUpload do
     end
   end
   index do
-      h3 "<a href='/admin/rule_uploads/truncate'>очистить все</a>".html_safe
+      h3 "<a href='/admin/rule_upload/truncate'>очистить все</a>".html_safe
       column :id
       column "Филиал", :filial
       column "Образование", :education
@@ -30,7 +30,9 @@ ActiveAdmin.register RuleUpload do
       redirect_to admin_rule_uploads_path
     end
     def truncate
-       RuleUpload.delete_all
+     if RuleUpload.delete_all
+       redirect_to admin_rule_uploads_path
+     end
     end
   end
  

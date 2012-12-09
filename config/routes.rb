@@ -10,6 +10,7 @@ Ieml::Application.routes.draw do
 
   ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config
+    get "admin/rule_upload/truncate" => "admin/rule_uploads#truncate", :as => :truncate
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

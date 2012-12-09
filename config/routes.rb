@@ -4,6 +4,10 @@ Ieml::Application.routes.draw do
 
   root :to => 'main#index'
   post "summa" => 'main#summa'
+  get "main/autocomplit_faculty" => "main#autocomplit_faculty", :as => "faculty"
+  get "main/autocomplit_special" => "main#autocomplit_special", :as => "special"
+  get "main/autocomplit_form" => "main#autocomplit_form", :as => "form"
+
   ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config
   # The priority is based upon order of creation:

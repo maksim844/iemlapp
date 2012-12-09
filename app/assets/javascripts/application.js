@@ -41,4 +41,5 @@ function builder_form(){
 }
 function reset_selected(){
 	$('.f1,.f2,.f3,.f4,.f5,.f6,.f7,.f8').find('select option:first-child').attr("selected","selected");
+	$('.f1,.f2,.f3,.f4,.f5,.f6,.f7,.f8').find('input[type=text]').val("");
 }

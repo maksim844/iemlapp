@@ -1,4 +1,4 @@
-<div id="content_calc">
+<div id="content_calc"> 
 	<div class="calc_box">
 		<div class="left_box">
 			<%= form_for "summ", :url=>summa_path,  :multipart => true, :remote=>true do |f| %>
@@ -24,20 +24,41 @@
 				<% arr = Hash["9 классов"=>9,"11 классов"=>11 ] %>
 				<%= select("class", "id", arr, {:prompt => 'Сколько классов вы закончили?'}) %>
 			</div>
-			<div class="item f1">
-				<%= select("faculty", "id", Faculty.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Факультет'}) %>
+			<!-- <div class="item f1">
+				<%= select("faculty", "id", Faculty.all.collect {|p| [ p.title, p.title ] }, {:prompt => 'Факультет'}) %>
 			</div>
 			<div class="item f2">
-				<%= select("form", "id", Form.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Форма обучения'}) %>
+				<%= select("form", "id", Form.all.collect {|p| [ p.title, p.title] }, {:prompt => 'Форма обучения'}) %>
 			</div>
 			<div class="item f3">
-				<%= select("special", "id", Special.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Специальность'}) %>
+				<%= select("special", "id", Special.all.collect {|p| [ p.title, p.title ] }, {:prompt => 'Специальность'}) %>
 			</div>
 			<div class="item f4">
-				<%= select("bakalavriat", "id", Bakalavriat.all.collect {|p| [ p.title, p.id ] },{:prompt=>"Направление"}) %>
+				<%= select("bakalavriat", "id", Bakalavriat.all.collect {|p| [ p.title, p.title ] },{:prompt=>"Направление"}) %>
 			</div>
 			<div class="item f8">
-				<%= select("bakalavriat_aspirant", "id", BakalavriatAspirant.all.collect {|p| [ p.title, p.id ] },{:prompt=>"Направление аспирантуры"}) %>
+				<%= select("bakalavriat_aspirant", "id", BakalavriatAspirant.all.collect {|p| [ p.title, p.title ] },{:prompt=>"Направление аспирантуры"}) %>
+			</div>-->
+			<div class="item f1">
+				<%= text_field_tag :faculty, nil, :class=>:inp, :id=>"faculty_complit" %>
+				<br/>
+				<label class="gray"><i>Пример: Экономический</i></label>
+			</div>
+			<div class="item f3">
+				<%= text_field_tag :special, nil, :class=>:inp, :id=>"special_complit" %>
+				<br/>
+				<label class="gray"><i>Пример: Финансы и кредит </i></label>
+			</div>
+			<div class="item f2">
+				<%= text_field_tag :form, nil, :class=>:inp, :id=>"form_complit" %>
+				<br/>
+				<label class="gray"><i>Пример: Очная </i></label>
+			</div>
+			<div class="item f4">
+				<%= select("bakalavriat", "id", RuleUpload.where("bakalavriat != '' ").group(:bakalavriat).collect {|p| [ p.bakalavriat , p.bakalavriat  ] },{:prompt=>"Направление"}) %>
+			</div>
+			<div class="item f8">
+				<%= select("bakalavriat_aspirant", "id", BakalavriatAspirant.all.collect {|p| [ p.title, p.title ] },{:prompt=>"Направление аспирантуры"}) %>
 			</div>
 			<div class="item f5">
 				<% arr = Hash["1 курс"=>1,"2 курс"=>2,"3 курс"=>3,"4 курс"=>4,"5 курс"=>5,"6 курс"=>6 ] %>
@@ -50,13 +71,14 @@
 				<% end %>
 				<%= select("year", "id", arr, {:prompt => 'Год обучения'}) %>
 			</div>
+			
 			<hr size="1" color="#ccc" />
 			<div class="button">
 				<%= f.submit "Расчитать"%>
 			</div>
 			
 					
-			
+			<%= f.hidden_field :filial_id, :value=>(@filial_id.nil? ? 1 : @filial_id)%>
 			<% end %>
 		</div>
 		<div class="right_box">
@@ -69,3 +91,30 @@
 
 	</div>
 </div>
+<script>
+	$(function() {
+		$( "#faculty_complit" ).autocomplete({
+			source: "/main/autocomplit_faculty",
+			minLength: 1
+		});
+	});
+	$(function() {
+		$( "#special_complit" ).autocomplete({
+			source: "/main/autocomplit_special",
+			minLength: 1
+		});
+	});
+	$(function() {
+		$( "#form_complit" ).autocomplete({
+			source: "/main/autocomplit_form",
+			minLength: 1
+		});
+	});
+	$(function() {
+		$( "#bakalavr_complit" ).autocomplete({
+			source: "/main/autocomplit_bakalavr",
+			minLength: 1
+		});
+	});
+	
+</script>

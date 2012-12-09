@@ -9,6 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require lib/jquery-ui
+ * 
  */
 #content_calc{
 	padding: 20px;
@@ -24,9 +26,6 @@
        -moz-border-radius: 5px;
        -webkit-border-radius: 5px;
        -khtml-border-radius: 5px;
-       box-shadow:0 0 2px 0 #555555;
-      -webkit-box-shadow:0 0 2px 0 #555555;
-      -moz-box-shadow:0 0 2px 0 #555555;
     }
     .right_box{
       padding: 20px;
@@ -54,6 +53,10 @@
       padding: 2px;
       width: 300px;
     }
+  }
+  input[type=text]{
+    width: 290px;
+    padding: 5px;
   }
 }
 #itog{
@@ -148,4 +151,7 @@ hr {
 }
 .serif {
     font-family: Georgia,"Times New Roman",Times,serif;
+}
+.gray{
+  color: #999;
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030205725) do
+ActiveRecord::Schema.define(:version => 20121125163054) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -99,6 +99,23 @@ ActiveRecord::Schema.define(:version => 20121030205725) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "uri"
+    t.integer  "filial_id"
+  end
+
+  create_table "rule_uploads", :force => true do |t|
+    t.string   "filial_id"
+    t.string   "education"
+    t.string   "faculty"
+    t.string   "class_id"
+    t.string   "form"
+    t.string   "special"
+    t.string   "course_id"
+    t.string   "bakalavriat"
+    t.string   "year_id"
+    t.string   "summ_semestr"
+    t.string   "xls_file_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "rules", :force => true do |t|
@@ -120,6 +137,11 @@ ActiveRecord::Schema.define(:version => 20121030205725) do
 
   create_table "specials", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "v2_rules", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

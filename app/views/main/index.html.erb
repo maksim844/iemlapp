@@ -20,10 +20,6 @@
 				</div>
 			</div>
 			<hr size="1" color="#ccc" />
-			<div class="item f7">
-				<% arr = Hash["9 классов"=>9,"11 классов"=>11 ] %>
-				<%= select("class", "id", arr, {:prompt => 'Сколько классов вы закончили?'}) %>
-			</div>
 			<!-- <div class="item f1">
 				<%= select("faculty", "id", Faculty.all.collect {|p| [ p.title, p.title ] }, {:prompt => 'Факультет'}) %>
 			</div>
@@ -53,6 +49,10 @@
 				<%= text_field_tag :form, nil, :class=>:inp, :id=>"form_complit" %>
 				<br/>
 				<label class="gray"><i>Пример: Очная </i></label>
+			</div>
+			<div class="item f7">
+				<% arr = Hash["9 классов"=>9,"11 классов"=>11 ] %>
+				<%= select("class", "id", arr, {:prompt => 'Сколько классов вы закончили?'}) %>
 			</div>
 			<div class="item f4">
 				<%= select("bakalavriat", "id", RuleUpload.where("bakalavriat != '' ").group(:bakalavriat).collect {|p| [ p.bakalavriat , p.bakalavriat  ] },{:prompt=>"Направление"}) %>

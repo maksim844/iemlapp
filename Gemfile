@@ -27,6 +27,7 @@ gem 'activeadmin'
   gem 'factory_girl_rails', '1.0'
   gem "spreadsheet"
   gem "paperclip"
+  gem "rufus-scheduler"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

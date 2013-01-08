@@ -2,12 +2,12 @@
 
 class MainController < ApplicationController
   def index
-    @filial_id = params[:filial_id].nil? ? 2 : params[:filial_id]
+    @filial_id = params[:filial_id].nil? ? 1 : params[:filial_id]
     @facultys = Faculty.all
     @educations = RuleUpload.where("education != '' ").group("education")
   end 
   def summa
-    @filial_id = params[:filial_id].nil? ? 2 : params[:filial_id]
+    @filial_id = params[:filial_id].nil? ? 1 : params[:filial_id]
     @summ = RuleUpload.where(
       :filial_id=> !params[:summ][:filial_id].blank? ? params[:summ][:filial_id] : nil, 
       :education=> params[:education].to_s, 
@@ -19,7 +19,12 @@ class MainController < ApplicationController
       :special => !params[:special].blank? ? params[:special] : nil,
       :class_id => !params[:class][:id].blank? ? params[:class][:id] : 0
       ).first
+      
+    @notice = Page.find_by_uri_and_filial_id(:notice, @filial_id) ? Page.find_by_uri_and_filial_id(:notice, @filial_id).text : not_found
+    @error = Page.find_by_uri_and_filial_id(:error, @filial_id) ? Page.find_by_uri_and_filial_id(:error, @filial_id).text : not_found
   end
+  
+
   def autocomplit_faculty
     if params[:term]
       like= "%".concat(params[:term].concat("%"))

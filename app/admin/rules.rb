@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 ActiveAdmin.register Rule do
-  menu  :label => "Правила подсчета стоимости"
+  menu  :label => false#"Правила подсчета стоимости"
   index do
       column :id
       column "Образование", :education

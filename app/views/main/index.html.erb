@@ -36,16 +36,19 @@
 				<%= select("bakalavriat_aspirant", "id", BakalavriatAspirant.all.collect {|p| [ p.title, p.title ] },{:prompt=>"Направление аспирантуры"}) %>
 			</div>-->
 			<div class="item f1">
+				<label>Факультет</label><br/>
 				<%= text_field_tag :faculty, nil, :class=>:inp, :id=>"faculty_complit" %>
 				<br/>
 				<label class="gray"><i>Пример: Экономический</i></label>
 			</div>
 			<div class="item f3">
+				<label>Специальность</label><br/>
 				<%= text_field_tag :special, nil, :class=>:inp, :id=>"special_complit" %>
 				<br/>
 				<label class="gray"><i>Пример: Финансы и кредит </i></label>
 			</div>
 			<div class="item f2">
+				<label>Форма обучения</label><br/>
 				<%= text_field_tag :form, nil, :class=>:inp, :id=>"form_complit" %>
 				<br/>
 				<label class="gray"><i>Пример: Очная </i></label>
@@ -76,7 +79,6 @@
 			<div class="button">
 				<%= f.submit "Расчитать"%>
 			</div>
-			
 					
 			<%= f.hidden_field :filial_id, :value=>(params[:filial_id].nil? ? 1 : params[:filial_id])%>
 			<% end %>

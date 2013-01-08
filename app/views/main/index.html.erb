@@ -54,7 +54,7 @@
 				<label class="gray"><i>Пример: Очная </i></label>
 			</div>
 			<div class="item f7">
-				<% arr = Hash["9 классов"=>9,"11 классов"=>11 ] %>
+				<% arr = Hash["9 классов"=>9,"11 классов"=>11, "НПО"=>0 ] %>
 				<%= select("class", "id", arr, {:prompt => 'Сколько классов вы закончили?'}) %>
 			</div>
 			<div class="item f4">
@@ -80,7 +80,7 @@
 				<%= f.submit "Расчитать"%>
 			</div>
 					
-			<%= f.hidden_field :filial_id, :value=>(params[:filial_id].nil? ? 1 : params[:filial_id])%>
+			<%= f.hidden_field :filial_id, :value=>@filial_id%>
 			<% end %>
 		</div>
 		<div class="right_box">
@@ -93,7 +93,6 @@
 
 	</div>
 </div>
-<i>filial : <%= params[:filial_id] %></i>
 <script>
 	$(function() {
 		$( "#faculty_complit" ).autocomplete({

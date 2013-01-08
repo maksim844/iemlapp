@@ -14,7 +14,8 @@ ActiveAdmin.register Page do
   form :html => { :multiple => true  } do |f|
     f.inputs 'Текст ошибки' do
       f.input :filial, :label => 'Филиал'
-      f.input :uri, :label => 'Тип'
+      arr = Hash["notice"=>:notice,"error"=>:error ]
+      f.input :uri, :as => :select, :collection => arr, :label => 'Тип текста (notice или error)'
       f.input :text, :label => 'Текст'
       f.buttons
     end

@@ -2,10 +2,12 @@
 
 class MainController < ApplicationController
   def index
+    @filial_id = params[:filial_id].nil? ? 2 : params[:filial_id]
     @facultys = Faculty.all
     @educations = RuleUpload.where("education != '' ").group("education")
   end 
   def summa
+    @filial_id = params[:filial_id].nil? ? 2 : params[:filial_id]
     @summ = RuleUpload.where(
       :filial_id=> !params[:summ][:filial_id].blank? ? params[:summ][:filial_id] : nil, 
       :education=> params[:education].to_s, 

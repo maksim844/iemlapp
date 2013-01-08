@@ -20,20 +20,20 @@ jQuery(document).ready(function(){
 	});
 });
 function builder_form(){
-	at = $('.education input[type=radio]:checked').attr("id")
-	if($('.'+at).html() == "Высшее"){
+	at = $('.education input[type=radio]:checked').val()
+	if(at == "Высшее"){
 		$('.f1,.f2,.f3,.f5').show();
 		$('.f4, .f6,.f7,.f8').hide();
 	}
-	else if($('.'+at).html() == "Высшее бакалавриат"){
+	else if(at == "Высшее бакалавриат"){
 		$('.f1,.f2,.f4,.f5').show();
 		$('.f3, .f6,.f7,.f8').hide();
 	}
-	else if($('.'+at).html() == "Среднее специальное"){
+	else if(at == "Среднее специальное"){
 		$('.f2,.f4,.f5,.f7').show();
 		$('.f1, .f3, .f6,.f8').hide();
 	}
-	else if($('.'+at).html() == "Послевузовское"){
+	else if(at == "Послевузовское"){
 		$('.f2,.f8,.f6').show();
 		$('.f1, .f3,.f4, .f5,.f7').hide();
 	}

@@ -6,15 +6,9 @@ class MainController < ApplicationController
     @educations = RuleUpload.where("education != '' ").group("education")
   end 
   def summa
-    if !params[:education].blank?
-      education_id = "Высшее" if params[:education].to_i == 1
-      education_id = "Высшее бакалавриат" if params[:education].to_i == 2
-      education_id = "Среднее специальное" if params[:education].to_i == 3
-      education_id = "Послевузовское" if params[:education].to_i == 4
-    end
     @summ = RuleUpload.where(
       :filial_id=> !params[:summ][:filial_id].blank? ? params[:summ][:filial_id] : nil, 
-      :education=> education_id, 
+      :education=> params[:education].to_s, 
       :faculty => !params[:faculty].blank? ? params[:faculty] : nil, 
       :form => !params[:form].blank? ? params[:form] : nil,
       :bakalavriat => !params[:bakalavriat][:id].blank? ? params[:bakalavriat][:id] : nil,

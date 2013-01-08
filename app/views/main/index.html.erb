@@ -10,9 +10,9 @@
 				<div class="education">
 					<% Education.all.each do |f|  %>						
 						<% if Education.all.first.title.to_s == f.title.to_s %>
-							<%= radio_button_tag 'education', f.id ,:checked=>true %>&nbsp;
+							<%= radio_button_tag 'education', f.title, :class =>"education_#{f.id}" ,:checked=>true %>&nbsp;
 						<% else %>
-							<%= radio_button_tag 'education', f.id %>&nbsp;
+							<%= radio_button_tag 'education', f.title, :class =>"education_#{f.id}"  %>&nbsp;
 						<% end %>
 						<label class="education_<%= f.id %>"><%= f.title %></label>
 						<br/>

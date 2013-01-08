@@ -30,9 +30,9 @@ ActiveAdmin.register RuleUpload do
       redirect_to admin_rule_uploads_path
     end
     def truncate
-     if RuleUpload.delete_all
-       redirect_to admin_rule_uploads_path
-     end
+      flash[:notice] = "Успешно очистили=)"
+     ActiveRecord::Base.connection.execute("TRUNCATE TABLE rule_uploads")
+     redirect_to admin_rule_uploads_path
     end
   end
  

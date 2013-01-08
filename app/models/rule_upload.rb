@@ -21,7 +21,7 @@ class RuleUpload < ActiveRecord::Base
       book = Spreadsheet.open self.xls.queued_for_write[:original].path
       sheet1 = book.worksheet 0
       sheet1.each do |row|
-        unless row[9].blank?
+        unless row[1].to_s.blank?
           RuleUpload.create!(
             :filial_id => self.filial_id,
             :education => row[1], 

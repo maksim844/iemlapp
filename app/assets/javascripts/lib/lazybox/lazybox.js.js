@@ -178,6 +178,9 @@
           return $.lazybox.close(options.speed);
         }
       });
+      $('#lazybox_overlay').click(function(){
+      	$.lazybox.close(options.speed);
+      });
       box.on('click', '#lazybox_close, .lazy_buttons a', function(e) {
         $.lazybox.close(options.speed);
         return e.preventDefault();

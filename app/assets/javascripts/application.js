@@ -20,6 +20,9 @@ jQuery(document).ready(function(){
 	$('.education input[type=radio]').click(function(){
 		builder_form();
 	});
+	$('#class_id').change(function () {
+		addSelectOptonsClass($(this).val())
+	});
 		/****
 	 **  Эффект загрузки для remote true
 	 ****/
@@ -30,6 +33,10 @@ jQuery(document).ready(function(){
 });
 function addSelectOptonsFaculty(faculty){
 	$.get('getBakalavriatByFaculty', { faculty: faculty}, function(data) {
+	});
+}
+function addSelectOptonsClass(klass){
+	$.get('getBakalavriatByClass', { klass:klass}, function(data) {
 	});
 }
 function builder_form(){

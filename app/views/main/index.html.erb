@@ -101,6 +101,7 @@
 </style>
 
 <script>
+	
 	$(function() {
 		$( "#faculty_complit" ).autocomplete({
 			source: "/main/autocomplit_faculty",
@@ -109,7 +110,7 @@
 				addSelectOptonsFaculty(ui.item.label)
 			}
 		});
-	});
+	});	
 	$(function() {
 		$( "#special_complit" ).autocomplete({
 			source: "/main/autocomplit_special",

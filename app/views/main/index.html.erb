@@ -8,8 +8,8 @@
 				<h3>Выберите тип образования:</h3>
 				<hr size="1" color="#ccc" />
 				<div class="education">
-					<% Education.all.each do |f|  %>						
-						<% if Education.all.first.title.to_s == f.title.to_s %>
+					<% @educations.each do |f|  %>						
+						<% if @educations.first.title.to_s == f.title.to_s %>
 							<%= radio_button_tag 'education', f.title, :class =>"education_#{f.id}" ,:checked=>true %>&nbsp;
 						<% else %>
 							<%= radio_button_tag 'education', f.title, :class =>"education_#{f.id}"  %>&nbsp;
@@ -93,11 +93,21 @@
 
 	</div>
 </div>
+
+<style>
+	.ui-autocomplete-loading {
+	background: white url('/img/ui-anim_basic_16x16.gif') right center no-repeat;
+	}
+</style>
+
 <script>
 	$(function() {
 		$( "#faculty_complit" ).autocomplete({
 			source: "/main/autocomplit_faculty",
-			minLength: 1
+			minLength: 1,
+			select: function( event, ui ) {
+				addSelectOptonsFaculty(ui.item.label)
+			}
 		});
 	});
 	$(function() {
@@ -117,6 +127,5 @@
 			source: "/main/autocomplit_bakalavr",
 			minLength: 1
 		});
-	});
-	
+	});	
 </script>

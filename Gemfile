@@ -19,7 +19,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'json'
 gem 'jquery-rails'
 gem 'activeadmin'
   gem 'rspec-rails', '2.6.1'
@@ -28,6 +28,7 @@ gem 'activeadmin'
   gem "spreadsheet"
   gem "paperclip"
   gem "rufus-scheduler"
+  gem "lazybox"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

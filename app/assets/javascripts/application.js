@@ -13,19 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require lazybox
+
 jQuery(document).ready(function(){
 	builder_form();
 	$('.education input[type=radio]').click(function(){
 		builder_form();
 	});
 });
+function addSelectOptonsFaculty(faculty){
+	$.get('getBakalavriatByFaculty', { faculty: faculty}, function(data) {
+	});
+}
 function builder_form(){
 	at = $('.education input[type=radio]:checked').val()
 	if(at == "Высшее"){
 		$('.f1,.f2,.f3,.f5').show();
 		$('.f4, .f6,.f7,.f8').hide();
 	}
-	else if(at == "Высшее бакалавриат"){
+	else if(at == "Бакалавриат" || at == "Магистратура"){
 		$('.f1,.f2,.f4,.f5').show();
 		$('.f3, .f6,.f7,.f8').hide();
 	}

@@ -1,0 +1,52 @@
+#lazybox_overlay {
+  background: black;
+  bottom: 0px;
+  display: none;
+  left: 0px;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 1000;
+}
+#lazybox_body{
+  padding: 30px 20px;
+}
+#lazybox {
+  background-color: #fff;
+  box-shadow: 0 1px 10px #333;
+  display: none;
+  left: 49%;
+  position: absolute;
+  top: 49%;
+  z-index: 1001;
+  -moz-box-shadow: 0 1px 5px #333;
+  -webkit-box-shadow: 0 1px 5px #333;
+  -moz-border-radius: 5px; /* Firefox */
+  -webkit-border-radius: 5px; /* Safari, Chrome */
+  -khtml-border-radius: 5px; /* KHTML */
+  border-radius: 5px; /* CSS3 */
+/* Для плохих IE */
+}
+
+a#lazybox_close {
+    background: none repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 21px;
+    height: 25px;
+    position: absolute;
+    right: 7px;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
+}
+
+a#lazybox_close.nice {
+  font-size: 33px;
+  color: red;
+}
+
+a#lazybox_close:hover { color: #000;}
+img.lazy_img { cursor: pointer; }
+#lazybox .lazy_buttons { margin-top: 15px; text-align: right; }
+#lazybox.confirm { max-width: 300px; }

@@ -7,7 +7,7 @@ Ieml::Application.routes.draw do
   get "main/autocomplit_faculty" => "main#autocomplit_faculty", :as => "faculty"
   get "main/autocomplit_special" => "main#autocomplit_special", :as => "special"
   get "main/autocomplit_form" => "main#autocomplit_form", :as => "form"
-
+  get "getBakalavriatByFaculty" => "main#getBakalavriatByFaculty", :as => "getBakalavriat"
   ActiveAdmin.routes(self)
     devise_for :admin_users, ActiveAdmin::Devise.config
     get "admin/rule_upload/truncate" => "admin/rule_uploads#truncate", :as => :truncate

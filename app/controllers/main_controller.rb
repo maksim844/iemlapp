@@ -4,7 +4,8 @@ class MainController < ApplicationController
   def index
     @filial_id = params[:filial_id].nil? ? 1 : params[:filial_id]
     @facultys = Faculty.all
-    @educations = RuleUpload.where("education != '' ").group("education")
+    @educations = Education.find(:all, :order => "sort asc")
+    
   end 
   def summa
     @filial_id = params[:filial_id].nil? ? 1 : params[:filial_id]
@@ -23,8 +24,9 @@ class MainController < ApplicationController
     @notice = Page.find_by_uri_and_filial_id(:notice, @filial_id) ? Page.find_by_uri_and_filial_id(:notice, @filial_id).text : not_found
     @error = Page.find_by_uri_and_filial_id(:error, @filial_id) ? Page.find_by_uri_and_filial_id(:error, @filial_id).text : not_found
   end
-  
-
+  def getBakalavriatByFaculty
+    @list = RuleUpload.where("bakalavriat != '' and  faculty = ?", params[:faculty]).group(:bakalavriat)
+  end
   def autocomplit_faculty
     if params[:term]
       like= "%".concat(params[:term].concat("%"))

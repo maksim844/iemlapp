@@ -1,12 +1,5 @@
 <% if @summ %>
-	$('#itog')
-		.hide()
-		.fadeIn()
-		.html("Стоимость обучения за текущий семестр: <br/><strong class='digit'><%= @summ.summ_semestr %> руб.</strong> " + 
-		"<br/><br/> <%= escape_javascript(@notice.html_safe) %>" )
+	$.lazybox("<%= escape_javascript(@notice.html_safe) %>" )
 <% else %>
-	$('#itog')
-		.hide()
-		.fadeIn()
-		.html("<%= escape_javascript(@error.html_safe) %>")
+	$.lazybox("<%= escape_javascript(@error.html_safe) %>")
 <% end %>

@@ -1,5 +1,5 @@
 #lazybox_overlay {
-  background: black;
+  background: none;
   bottom: 0px;
   display: none;
   left: 0px;
@@ -30,15 +30,15 @@
 
 a#lazybox_close {
     background: none repeat scroll 0 0 transparent;
-    color: #FFFFFF;
+    color: #000;
     cursor: pointer;
-    font-size: 21px;
+    font-size: 25px;
     height: 25px;
     position: absolute;
-    right: 7px;
+    right: 10px;
     text-align: center;
     text-decoration: none;
-    top: 0;
+    top: 3px;
 }
 
 a#lazybox_close.nice {
@@ -46,7 +46,7 @@ a#lazybox_close.nice {
   color: red;
 }
 
-a#lazybox_close:hover { color: #000;}
+a#lazybox_close:hover { color: gray;}
 img.lazy_img { cursor: pointer; }
 #lazybox .lazy_buttons { margin-top: 15px; text-align: right; }
 #lazybox.confirm { max-width: 300px; }

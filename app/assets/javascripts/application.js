@@ -13,13 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require lazybox
+//= require lib/lazybox/lazybox
 
 jQuery(document).ready(function(){
 	builder_form();
 	$('.education input[type=radio]').click(function(){
 		builder_form();
 	});
+		/****
+	 **  Эффект загрузки для remote true
+	 ****/
+		$('a[data-remote],input[data-remote], form[data-remote]')
+		.bind("ajax:beforeSend", function(et, e){ $("#loading").show();	})
+		.bind("ajax:complete", function(et, e){  $("#loading").hide(); })
+		.bind("ajax:after", function(et, e){  $("#loading").hide(); });
 });
 function addSelectOptonsFaculty(faculty){
 	$.get('getBakalavriatByFaculty', { faculty: faculty}, function(data) {

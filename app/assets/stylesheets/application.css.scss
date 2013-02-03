@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= reset
  *= require lib/jquery-ui
  *= require lib/lazybox/lazybox
  * 

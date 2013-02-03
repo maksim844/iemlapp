@@ -35,8 +35,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: apps_user
+  database: ieml_production
   pool: 5
-  username: root
+  username: apps_user
   password:
   socket: /var/run/mysqld/mysqld.sock

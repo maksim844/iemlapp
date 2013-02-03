@@ -30,6 +30,7 @@ gem 'activeadmin'
   gem "rufus-scheduler"
   gem "lazybox"
   gem 'nokogiri'
+  gem 'unicorn'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

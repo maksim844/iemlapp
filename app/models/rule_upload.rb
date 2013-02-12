@@ -1,5 +1,6 @@
 class RuleUpload < ActiveRecord::Base
-  attr_accessible :filial, :education, :faculty, :class_id, :form, :special, :course_id, :bakalavriat, :year_id,  :summ_semestr, :xls, :xls_file_name, :filial_id
+  attr_accessible :filial, :education, :faculty, :class_id, :form, :special, :course_id, :bakalavriat, :year_id,  :summ_semestr, :xls,
+   :xls_file_name, :filial_id, :normativ_summ, :finance_summ
   
   has_attached_file :xls,
       :url =>"/system/xls/:basename.:extension",
@@ -8,6 +9,7 @@ class RuleUpload < ActiveRecord::Base
   before_save :basename
   after_post_process :xls_read
   
+  validates :filial_id, :presence => true
   private
     def basename
       if self.xls.dirty?
@@ -21,7 +23,7 @@ class RuleUpload < ActiveRecord::Base
       book = Spreadsheet.open self.xls.queued_for_write[:original].path
       sheet1 = book.worksheet 0
       sheet1.each do |row|
-        unless row[1].to_s.blank?
+        if row[9].to_s != ""
           RuleUpload.create!(
             :filial_id => self.filial_id,
             :education => row[1], 
@@ -32,7 +34,9 @@ class RuleUpload < ActiveRecord::Base
             :course_id =>  row[6].to_i, 
             :bakalavriat =>  row[7],
             :year_id =>  row[8].to_i,
-            :summ_semestr =>  row[9].to_i
+            :summ_semestr =>  row[9].to_i,
+            :normativ_summ => row[10].to_i,
+            :finance_summ => row[11].to_i
             )
         end
       end

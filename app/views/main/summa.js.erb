@@ -1,5 +1,5 @@
 <% if @summ %>
-	$.lazybox("Сумма оплаты для студентов<br/> за текущий семестр: <div class='digit'><%= @summ.summ_semestr %> руб.</div> <%= escape_javascript(@notice.html_safe) %>" )
+	$.lazybox("<%= escape_javascript(render :partial=>'output') %>")
 <% else %>
 	$.lazybox("<%= escape_javascript(@error.html_safe) %>")
 <% end %>

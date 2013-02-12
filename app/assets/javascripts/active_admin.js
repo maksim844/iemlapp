@@ -79,5 +79,13 @@ tinyMCE.init({
                 staffid : "991234"
         }
 	});
-	
+	$("#truncate_by_id").change(function () {
+		 if (confirm('Вы действительно хотите удалить правила?')) {
+			$("#truncate_by_id option:selected").each(function () {
+				id = $(this).val()
+			});
+			location.href = '/admin/rule_upload/truncate_by_id/' + id
+		}
+		
+	})
 });

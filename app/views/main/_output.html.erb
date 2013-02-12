@@ -1,0 +1,18 @@
+<% unless @summ.normativ_summ.nil? %>
+	<div class='norm_font'>Норматив затрат:<br/>
+		<%= @summ.normativ_summ %> руб.
+	</div>
+<% end %>
+Сумма оплаты для студентов<br/> 
+за текущий семестр: 
+<div class='digit'>
+	<%= @summ.summ_semestr %> руб.
+</div>
+<% unless @summ.normativ_summ.nil? %>
+<div class='norm_font'>
+	Объем дофинансирования из внебюджетных источников<br/>
+	<%= @summ.finance_summ%> руб.
+</div
+<% end %> 
+<br/><br/>
+<%= @notice.html_safe %>

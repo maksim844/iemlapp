@@ -23,7 +23,7 @@ end
 
 gem 'json'
 gem 'jquery-rails'
-gem 'activeadmin'
+gem 'activeadmin', '0.5.1'
   gem 'factory_girl_rails', '1.0'
   gem "spreadsheet"
   gem "paperclip"

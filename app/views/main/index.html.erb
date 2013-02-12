@@ -36,10 +36,10 @@
 				<%= select("bakalavriat_aspirant", "id", BakalavriatAspirant.all.collect {|p| [ p.title, p.title ] },{:prompt=>"Направление аспирантуры"}) %>
 			</div>-->
 			<div class="item f1">
-				<label>Факультет</label><br/>
+			<!-- 	<label>Факультет</label><br/>-->
 				<%= select("faculty", "id", RuleUpload.where("faculty != '' ").group(:faculty).collect {|p| [ p.faculty , p.faculty  ] },{:prompt=>"Факультет"}) %>
 				<br/>
-				<label class="gray"><i>Пример: Экономический</i></label>
+				<!-- <label class="gray"><i>Пример: Экономический</i></label> -->
 			</div>
 			<div class="item f3">
 				<label>Специальность</label><br/>
@@ -48,10 +48,10 @@
 				<label class="gray"><i>Пример: Финансы и кредит </i></label>
 			</div>
 			<div class="item f2">
-				<label>Форма обучения</label><br/>
+				<!-- <label>Форма обучения</label><br/> -->
 				<%= select("form", "id", RuleUpload.where("form != '' ").group(:form).collect {|p| [ p.form , p.form  ] },{:prompt=>"Форма обучения"}) %>
 				<br/>
-				<label class="gray"><i>Пример: Очная </i></label>
+				<!-- <label class="gray"><i>Пример: Очная </i></label> -->
 			</div>
 			<div class="item f7">
 				<% arr = Hash["9 классов"=>9,"11 классов"=>11, "НПО"=>0 ] %>

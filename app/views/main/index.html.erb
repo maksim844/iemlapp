@@ -101,7 +101,14 @@
 </style>
 
 <script>
-	
+	$(function() {
+		$("#faculty_id").change(function () {
+			$("#faculty_id option:selected").each(function () {
+				id = $(this).val()
+			});
+			addSelectOptonsFaculty(id)		
+		});
+	});
 	$(function() {
 		$( "#faculty_complit" ).autocomplete({
 			source: "/main/autocomplit_faculty",

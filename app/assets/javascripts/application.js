@@ -35,6 +35,7 @@ function addSelectOptonsFaculty(faculty){
 	$.get('getBakalavriatByFaculty', { faculty: faculty}, function(data) {
 	});
 }
+
 function addSelectOptonsClass(klass){
 	$.get('getBakalavriatByClass', { klass:klass}, function(data) {
 	});

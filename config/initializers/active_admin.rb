@@ -7,6 +7,7 @@ ActiveAdmin.setup do |config|
   #  ActiveAdmin::Comment.table_name = "comments"
 
   config.site_title = "Калькулятор"
+  config.cache_classes = true
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

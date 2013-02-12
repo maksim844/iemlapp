@@ -1,6 +1,7 @@
 # encoding: utf-8
 
-ActiveAdmin::Dashboards.build do
+ActiveAdmin.register_page "Dashboard" do
+
 
 
 end

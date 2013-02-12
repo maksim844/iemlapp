@@ -12,8 +12,8 @@ class MainController < ApplicationController
     @summ = RuleUpload.where(
       :filial_id=> !params[:summ][:filial_id].blank? ? params[:summ][:filial_id] : nil, 
       :education=> params[:education].to_s, 
-      :faculty => !params[:faculty].blank? ? params[:faculty] : nil, 
-      :form => !params[:form].blank? ? params[:form] : nil,
+      :faculty => !params[:faculty][:id].blank? ? params[:faculty][:id] : nil, 
+      :form => !params[:form][:id].blank? ? params[:form][:id] : nil,
       :bakalavriat => !params[:bakalavriat][:id].blank? ? params[:bakalavriat][:id] : nil,
       :course_id => params[:course][:id], 
       #:year_id => !params[:year][:id].blank? ? params[:year][:id] : 0,

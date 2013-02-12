@@ -37,7 +37,7 @@
 			</div>-->
 			<div class="item f1">
 				<label>Факультет</label><br/>
-				<%= text_field_tag :faculty, nil, :class=>:inp, :id=>"faculty_complit" %>
+				<%= select("faculty", "id", RuleUpload.where("faculty != '' ").group(:faculty).collect {|p| [ p.faculty , p.faculty  ] },{:prompt=>"Факультет"}) %>
 				<br/>
 				<label class="gray"><i>Пример: Экономический</i></label>
 			</div>
@@ -49,7 +49,7 @@
 			</div>
 			<div class="item f2">
 				<label>Форма обучения</label><br/>
-				<%= text_field_tag :form, nil, :class=>:inp, :id=>"form_complit" %>
+				<%= select("form", "id", RuleUpload.where("form != '' ").group(:form).collect {|p| [ p.form , p.form  ] },{:prompt=>"Форма обучения"}) %>
 				<br/>
 				<label class="gray"><i>Пример: Очная </i></label>
 			</div>
@@ -77,7 +77,7 @@
 			
 			<hr size="1" color="#ccc" />
 			<div class="button">
-				<%= f.submit "Расчитать"%>
+				<%= f.submit "Cформировать"%>
 			</div>
 					
 			<%= f.hidden_field :filial_id, :value=>@filial_id%>

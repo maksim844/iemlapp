@@ -28,7 +28,7 @@ class MainController < ApplicationController
     @list = RuleUpload.where("bakalavriat != '' and  faculty = ?", params[:faculty]).group(:bakalavriat)
   end
   def getFormByEducation
-    @list = RuleUpload.where("form != '' and  education = ?", params[:education]).group(:education)
+    @list = RuleUpload.where("form != '' and  education = ?", params[:education]).group(:form)
   end
   def getBakalavriatByClass
     @list = RuleUpload.where("bakalavriat != '' and  class_id  = ?", params[:klass]).group(:bakalavriat)

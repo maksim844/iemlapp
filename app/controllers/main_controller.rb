@@ -17,7 +17,7 @@ class MainController < ApplicationController
       :bakalavriat => !params[:bakalavriat][:id].blank? ? params[:bakalavriat][:id] : nil,
       :course_id => params[:course][:id], 
       #:year_id => !params[:year][:id].blank? ? params[:year][:id] : 0,
-      :special => !params[:special].blank? ? params[:special] : nil,
+      :special => !params[:special][:id].blank? ? params[:special][:id] : nil,
       :class_id => !params[:class][:id].blank? ? params[:class][:id] : 0
       ).first
       
@@ -29,6 +29,9 @@ class MainController < ApplicationController
   end
   def getFormByEducation
     @list = RuleUpload.where("form != '' and  education = ?", params[:education]).group(:form)
+  end
+  def getSpecialByFaculty
+    @list = RuleUpload.where("special != '' and  faculty = ?", params[:faculty]).group(:special)
   end
   def getBakalavriatByClass
     @list = RuleUpload.where("bakalavriat != '' and  class_id  = ?", params[:klass]).group(:bakalavriat)

@@ -35,6 +35,10 @@ function addSelectOptonsFaculty(faculty){
 	$.get('getBakalavriatByFaculty', { faculty: faculty}, function(data) {
 	});
 }
+function addSelectOptonsSpecial(faculty){
+	$.get('getSpecialByFaculty', { faculty: faculty}, function(data) {
+	});
+}
 function addSelectOptonsFormEducation(education){
 	$.get('getFormByEducation', { education: education}, function(data) {
 	});

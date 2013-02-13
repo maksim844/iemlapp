@@ -1,4 +1,4 @@
-<% unless @summ.normativ_summ.nil? %>
+<% if @summ.normativ_summ.to_i != 0 %>
 	<div class='norm_font'>Базовый норматив на единицу образовательной услуги:<br/>
 		<%= @summ.normativ_summ %> руб.
 	</div>
@@ -8,7 +8,7 @@
 <div class='digit'>
 	<%= @summ.summ_semestr %> руб.
 </div>
-<% unless @summ.normativ_summ.nil? %>
+<% if @summ.normativ_summ.to_i != 0 %>
 <div class='norm_font'>
 	Объем дофинансирования за счет внебюджетных средств<br/>
 	<%= @summ.finance_summ%> руб.

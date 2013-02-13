@@ -42,10 +42,12 @@
 				<!-- <label class="gray"><i>Пример: Экономический</i></label> -->
 			</div>
 			<div class="item f3">
-				<label>Специальность</label><br/>
+				<!-- <!-- <label>Специальность</label><br/>
 				<%= text_field_tag :special, nil, :class=>:inp, :id=>"special_complit" %>
 				<br/>
-				<label class="gray"><i>Пример: Финансы и кредит </i></label>
+				<label class="gray"><i>Пример: Финансы и кредит </i></label> -->
+				<%= select(:special, "id", RuleUpload.where("special != '' ").group(:special).collect {|p| [ p.special , p.special  ] },{:prompt=>"Специальность"}) %>
+				<br/>
 			</div>
 			<div class="item f2">
 				<!-- <label>Форма обучения</label><br/> -->
@@ -111,7 +113,8 @@
 			$("#faculty_id option:selected").each(function () {
 				id = $(this).val()
 			});
-			addSelectOptonsFaculty(id)		
+			addSelectOptonsFaculty(id)
+			addSelectOptonsSpecial(id)	
 		});
 	});
 	$(function() {

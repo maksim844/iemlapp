@@ -35,8 +35,8 @@ class RuleUpload < ActiveRecord::Base
             :bakalavriat =>  row[7],
             :year_id =>  row[8].to_i,
             :summ_semestr =>  row[9].to_i,
-            :normativ_summ => row[10].to_i,
-            :finance_summ => row[11].to_i
+            :normativ_summ => (row[10].to_s unless row[10].to_s.nil?),
+            :finance_summ => (row[11].to_s unless row[11].to_s.nil?)
             )
         end
       end

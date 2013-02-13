@@ -1,0 +1,4 @@
+<option value="" selected="selected">Специальность</option>
+<% @list.each do |l| %>
+	<option value='<%= l.special %>'><%= l.special %></option>
+<% end %>

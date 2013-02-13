@@ -9,6 +9,7 @@ Ieml::Application.routes.draw do
   get "main/autocomplit_form" => "main#autocomplit_form", :as => "form"
   get "getBakalavriatByFaculty" => "main#getBakalavriatByFaculty"
   get "getBakalavriatByClass" => "main#getBakalavriatByClass"
+  get "getFormByEducation" => "main#getFormByEducation"
    get "admin/rule_upload/truncate" => "admin/rule_uploads#truncate", :as => :truncate
     get "admin/rule_upload/truncate_by_id/:id" => "admin/rule_uploads#truncate_by_id", :as => :truncate_by_id
   ActiveAdmin.routes(self)

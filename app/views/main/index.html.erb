@@ -58,10 +58,10 @@
 				<%= select("class", "id", arr, {:prompt => 'Сколько классов вы закончили?'}) %>
 			</div>
 			<div class="item f4">
-				<%= select("bakalavriat", "id", RuleUpload.where("bakalavriat != '' ").group(:bakalavriat).collect {|p| [ p.bakalavriat , p.bakalavriat  ] },{:prompt=>"Направление"}) %>
+				<%= select("bakalavriat", "id", RuleUpload.where("bakalavriat != ''  AND education != 'Послевузовское'").group(:bakalavriat).collect {|p| [ p.bakalavriat , p.bakalavriat  ] },{:prompt=>"Направление"}) %>
 			</div>
 			<div class="item f8">
-				<%= select("bakalavriat_aspirant", "id", BakalavriatAspirant.all.collect {|p| [ p.title, p.title ] },{:prompt=>"Направление аспирантуры"}) %>
+				<%= select("bakalavriat_aspirant", "id", RuleUpload.where("bakalavriat != '' AND education = 'Послевузовское'").group(:bakalavriat).collect {|p| [ p.bakalavriat , p.bakalavriat  ] },{:prompt=>"Направление"}) %>
 			</div>
 			<div class="item f5">
 				<% arr = Hash["1 курс"=>1,"2 курс"=>2,"3 курс"=>3,"4 курс"=>4,"5 курс"=>5,"6 курс"=>6 ] %>
@@ -101,6 +101,11 @@
 </style>
 
 <script>
+	$(function() {
+		$("input[name=education]").live("change", function(){
+			addSelectOptonsFormEducation($(this).val());
+		});
+	});
 	$(function() {
 		$("#faculty_id").change(function () {
 			$("#faculty_id option:selected").each(function () {

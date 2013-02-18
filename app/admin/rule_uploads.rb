@@ -23,12 +23,7 @@ ActiveAdmin.register RuleUpload do
       column "Филиал", :filial
       column "Образование", :education
       column "Факультет", :faculty
-      column "Школьная база", :class_id
-      column "Форма обучения", :form
-      column "Специальность", :special
       column "Курс", :course_id
-      column "Направление", :bakalavriat
-      column "Год обучения", :year_id
       column "Стоимость за семестр", :summ_semestr
       column "Норматив затрат", :normativ_summ
       column "Дофинансирование", :finance_summ

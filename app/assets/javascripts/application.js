@@ -49,11 +49,11 @@ function addSelectOptonsClass(klass){
 }
 function builder_form(){
 	at = $('.education input[type=radio]:checked').val()
-	if(at == "Высшее бакалавриат" || at == "Высшее специалист"){
+	if(at == "Высшее специалист"){
 		$('.f1,.f2,.f3,.f5').show();
 		$('.f4, .f6,.f7,.f8').hide();
 	}
-	else if(at == "Высшее магистратура" ){
+	else if(at == "Высшее бакалавриат" || at == "Высшее магистратура" ){
 		$('.f1,.f2,.f4,.f5').show();
 		$('.f3, .f6,.f7,.f8').hide();
 	}

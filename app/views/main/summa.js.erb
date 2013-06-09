@@ -1,4 +1,4 @@
-<% if @summ %>
+<% if @summ %>	
 	$.lazybox("<%= escape_javascript(render :partial=>'output') %>")
 <% else %>
 	$.lazybox("<%= escape_javascript(@error.html_safe) %>")

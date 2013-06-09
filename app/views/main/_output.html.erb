@@ -1,18 +1,16 @@
-<% if @summ.normativ_summ.to_i != 0 %>
-	<div class='norm_font'>Базовый норматив затрат на единицу образовательной услуги за текущий семестр:<br/>
-		<%= @summ.normativ_summ %> руб.
-	</div>
-<% end %>
-Оплата для студентов за текущий семестр:<br/> 
-
-<div class='digit'>
-	<%= @summ.summ_semestr %> руб.
+<% summ = "<div class='digit'>#{@summ.summ_semestr} руб.</div>".html_safe %>
+<div class="notice">
+	<%= @notice.html_safe %>
 </div>
-<% if @summ.normativ_summ.to_i != 0 %>
-<div class='norm_font'>
-	Объем дофинансирования  за счет внебюджетных средств за текущий семестр:<br/>
-	<%= @summ.finance_summ%> руб.
-</div
-<% end %> 
-<br/><br/>
-<%= @notice.html_safe %>
+<script>
+	$(document).ready(function(){
+		$('.notice p').each(function(){
+			if($(this).html().match(/=summ/))
+				$(this).html("<%= summ %>")
+			else if($(this).html().match(/=base_value/))
+				$(this).html("<%= (@summ.normativ_summ.to_i != 0) ? "#{@summ.normativ_summ} руб." : "0 руб." %>")
+			else if($(this).html().match(/=finance_value/))
+				$(this).html("<%= (@summ.finance_summ.to_i != 0) ? "#{@summ.finance_summ} руб." : "0 руб."  %>")		
+		});		
+	});
+</script>

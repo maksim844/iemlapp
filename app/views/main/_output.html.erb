@@ -9,11 +9,11 @@
 				$(this).html("<%= summ %>")
 			else if($(this).html().match(/=base_value/)){
 				text = $(this).html().split(/[()]/)[1]
-				$(this).html(text + "<%= (@summ.normativ_summ.to_i != 0) ? "<br/>#{@summ.normativ_summ} руб.".html_safe : "" %>")
+				$(this).html(<%= (@summ.normativ_summ.to_i != 0) ? (text + "<br/>#{@summ.normativ_summ} руб.".html_safe) : "" %>")
 			}
 			else if($(this).html().match(/=finance_value/)){
 				text = $(this).html().split(/[()]/)[1]
-				$(this).html(text + "<%= (@summ.finance_summ.to_i != 0) ? "<br/>#{@summ.finance_summ} руб.".html_safe : ""  %>")		
+				$(this).html("<%= (@summ.finance_summ.to_i != 0) ? (text + "<br/>#{@summ.finance_summ} руб.".html_safe) : ""  %>")		
 			}
 		});		
 	});

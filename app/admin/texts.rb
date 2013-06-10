@@ -16,7 +16,7 @@ ActiveAdmin.register Page do
       f.input :filial, :label => 'Филиал'
       arr = Hash["notice"=>:notice,"error"=>:error ]
       f.input :uri, :as => :select, :collection => arr, :label => 'Тип текста (notice или error)'
-      f.input :text, :label => 'Текст'
+      f.input :text, :label => 'Текст( Переменные =base_value =summ_value =finance_value)'
       f.buttons
     end
   end

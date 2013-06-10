@@ -7,10 +7,14 @@
 		$('.notice p').each(function(){
 			if($(this).html().match(/=summ/))
 				$(this).html("<%= summ %>")
-			else if($(this).html().match(/=base_value/))
-				$(this).html("<%= (@summ.normativ_summ.to_i != 0) ? "#{@summ.normativ_summ} руб." : "0 руб." %>")
-			else if($(this).html().match(/=finance_value/))
-				$(this).html("<%= (@summ.finance_summ.to_i != 0) ? "#{@summ.finance_summ} руб." : "0 руб."  %>")		
+			else if($(this).html().match(/=base_value/)){
+				text = $(this).html().split(/[()]/)[1]
+				$(this).html(text + "<%= (@summ.normativ_summ.to_i != 0) ? "<br/>#{@summ.normativ_summ} руб.".html_safe : "" %>")
+			}
+			else if($(this).html().match(/=finance_value/)){
+				text = $(this).html().split(/[()]/)[1]
+				$(this).html(text + "<%= (@summ.finance_summ.to_i != 0) ? "<br/>#{@summ.finance_summ} руб.".html_safe : ""  %>")		
+			}
 		});		
 	});
 </script>

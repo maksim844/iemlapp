@@ -35,13 +35,13 @@
 			<div class="item f8">
 				<%= select("bakalavriat_aspirant", "id", BakalavriatAspirant.all.collect {|p| [ p.title, p.title ] },{:prompt=>"Направление аспирантуры"}) %>
 			</div>-->
-			<div class="item f1">
+			<div class="item f1 f">
 			<!-- 	<label>Факультет</label><br/>-->
 				<%= select("faculty", "id", RuleUpload.where("faculty != '' ").group(:faculty).collect {|p| [ p.faculty , p.faculty  ] },{:prompt=>"Факультет"}) %>
 				<br/>
 				<!-- <label class="gray"><i>Пример: Экономический</i></label> -->
 			</div>
-			<div class="item f3">
+			<div class="item f3 f">
 				<!-- <!-- <label>Специальность</label><br/>
 				<%= text_field_tag :special, nil, :class=>:inp, :id=>"special_complit" %>
 				<br/>
@@ -49,27 +49,27 @@
 				<%= select(:special, "id", RuleUpload.where("special != '' ").group(:special).collect {|p| [ p.special , p.special  ] },{:prompt=>"Специальность"}) %>
 				<br/>
 			</div>
-			<div class="item f2">
+			<div class="item f2 f">
 				<!-- <label>Форма обучения</label><br/> -->
 				<%= select("form", "id", RuleUpload.where("form != '' ").group(:form).collect {|p| [ p.form , p.form  ] },{:prompt=>"Форма обучения"}) %>
 				<br/>
 				<!-- <label class="gray"><i>Пример: Очная </i></label> -->
 			</div>
-			<div class="item f7">
+			<div class="item f7 f">
 				<% arr = Hash["9 классов"=>9,"11 классов"=>11, "НПО"=>0 ] %>
 				<%= select("class", "id", arr, {:prompt => 'Сколько классов вы закончили?'}) %>
 			</div>
-			<div class="item f4">
+			<div class="item f4 f">
 				<%= select("bakalavriat", "id", RuleUpload.where("bakalavriat != ''  AND education != 'Послевузовское'").group(:bakalavriat).collect {|p| [ p.bakalavriat , p.bakalavriat  ] },{:prompt=>"Направление"}) %>
 			</div>
-			<div class="item f8">
+			<div class="item f8 f">
 				<%= select("bakalavriat_aspirant", "id", RuleUpload.where("bakalavriat != '' AND education = 'Послевузовское'").group(:bakalavriat).collect {|p| [ p.bakalavriat , p.bakalavriat  ] },{:prompt=>"Направление"}) %>
 			</div>
-			<div class="item f5">
+			<div class="item f5 f">
 				<% arr = Hash["1 курс"=>1,"2 курс"=>2,"3 курс"=>3,"4 курс"=>4,"5 курс"=>5,"6 курс"=>6 ] %>
 				<%= select("course", "id", arr, {:prompt => 'Укажите курс'}) %>
 			</div>
-			<div class="item f6">	
+			<div class="item f6 f">	
 				<% arr = Hash["1994"=>1994] %>
 				<% i=1994; (Time.now.year-1994).to_i.times do |t| i+=1 %>
 					<% arr[i] = [t=>i]%>

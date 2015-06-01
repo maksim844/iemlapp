@@ -17,7 +17,7 @@ end
 
 group :development do
   gem 'annotate', ">=2.5.0"
-  gem 'capistrano', '~> 2.15.5'
+  gem "capistrano"
   gem "rvm-capistrano"
   gem 'rspec-rails', '~> 2.8.0'
 end

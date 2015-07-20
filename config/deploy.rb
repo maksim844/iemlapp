@@ -24,7 +24,11 @@ set :use_sudo, true
 set :user, "deployer"
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
-
+default_run_options[:env] = {
+    'http_proxy' => '192.168.1.2:3128', #Your HTTP proxy server
+    'https_proxy' => '192.168.1.2:3128', #Your HTTPS proxy server
+    'HTTPS_PROXY_REQUEST_FULLURI' => 'false',
+}
 set :rvm_ruby_string, 'ruby-2.1.1' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
 #set :rvm_bin_path, "/usr/local/rvm/bin"
 

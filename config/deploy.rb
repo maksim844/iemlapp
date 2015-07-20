@@ -21,6 +21,7 @@ set :rails_env, "production"
 set :domain, "deployer@84.18.102.4"
 set :deploy_to, "/var/www/#{application}"
 set :use_sudo, false
+set :user, "deployer"
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 

@@ -21,7 +21,7 @@ group :development do
   gem 'rspec-rails', '~> 2.8.0'
 end
 
-gem 'json'
+#gem 'json'
 gem 'jquery-rails'
 gem 'activeadmin', '0.5.1'
   gem 'factory_girl_rails', '1.0'

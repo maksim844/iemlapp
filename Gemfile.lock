@@ -216,7 +216,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails (= 1.0)
   jquery-rails
-  json
   lazybox
   mysql2
   nokogiri

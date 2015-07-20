@@ -12,7 +12,7 @@
 
 ####FROM HABRA
 require 'rvm/capistrano' # Для работы rvm
-require 'bundler/capistrano' # Для работы bundler. При изменении гемов bundler автоматически обновит все гемы на сервере, чтобы они в точности соответствовали гемам разработчика. 
+#require 'bundler/capistrano' # Для работы bundler. При изменении гемов bundler автоматически обновит все гемы на сервере, чтобы они в точности соответствовали гемам разработчика.
 
 set :application, "iemlapp"
 set :rails_env, "production"
@@ -71,7 +71,7 @@ namespace :deploy do
   end
   namespace :user do
     task :bundle do
-      #run %Q{cd #{current_release} && bundle install}
+      run %Q{cd #{current_release} && bundle install}
     end
   end
 
@@ -93,7 +93,7 @@ namespace :deploy do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
   end
   task :start do
-  #  run "cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
+    run "cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
   end
   task :stop do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"

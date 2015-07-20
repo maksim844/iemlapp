@@ -27,7 +27,7 @@ set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 set :rvm_ruby_string, 'ruby-2.1.1' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
 #set :rvm_bin_path, "/usr/local/rvm/bin"
 
-set :scm, :git # Используем git. Можно, конечно, использовать что-нибудь другое - svn, например, но общая рекомендация для всех кто не использует git - используйте git. 
+set :scm, :git # Используем git. Можно, конечно, использовать что-нибудь другое - svn, например, но общая рекомендация для всех кто не использует git - используйте git.
 #set :repository,  "git@github.com:maksim844/sozvezdie.git" # Путь до вашего репозитария. Кстати, забор кода с него происходит уже не от вас, а от сервера, поэтому стоит создать пару rsa ключей на сервере и добавить их в deployment keys в настройках репозитария.
 set :repository,  "https://github.com/mbikinin/iemlapp.git"
 
@@ -71,7 +71,7 @@ namespace :deploy do
   end
   namespace :user do
     task :bundle do
-      run %Q{cd #{current_release} && bundle install}
+      #run %Q{cd #{current_release} && bundle install}
     end
   end
 

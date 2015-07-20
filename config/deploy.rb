@@ -20,13 +20,12 @@ set :rails_env, "production"
 #set :domain, "deployer@79.143.190.205" # Это необходимо для деплоя через ssh. Именно ради этого я настоятельно советовал сразу же залить на сервер свой ключ, чтобы не вводить паролей.
 set :domain, "deployer@84.18.102.4"
 set :deploy_to, "/var/www/#{application}"
-set :use_sudo, true
-set :user, "deployer"
+set :use_sudo, false
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 default_run_options[:env] = {
-    'http_proxy' => '192.168.1.2:3128', #Your HTTP proxy server
-    'https_proxy' => '192.168.1.2:3128', #Your HTTPS proxy server
+    'http_proxy' => 'mbikinin:18121988bm@192.168.1.2:3128', #Your HTTP proxy server
+    'https_proxy' => 'mbikinin:18121988bm@192.168.1.2:3128', #Your HTTPS proxy server
     'HTTPS_PROXY_REQUEST_FULLURI' => 'false',
 }
 set :rvm_ruby_string, 'ruby-2.1.1' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
@@ -61,7 +60,7 @@ before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby' # интеграц�
 # Далее идут правила для перезапуска unicorn. Их стоит просто принять на веру - они работают.
 # В случае с Rails 3 приложениями стоит заменять bundle exec unicorn_rails на bundle exec unicorn
 
-#load 'deploy/assets' # assets:precompile etc
+load 'deploy/assets' # assets:precompile etc
 namespace :deploy do
   namespace :db do
     task :create do
